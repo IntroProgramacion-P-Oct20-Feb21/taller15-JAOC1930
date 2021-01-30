@@ -23,6 +23,7 @@ public class LecturaArchivo {
         String cadenaFinal = "";
         String nombreCanton;
         String numeroEstablecimientos;
+        char inicial;
         int numeroEstablecimientosEntero;
         // 1. Se abre el archivo
         try // lee registros del archivo, usando el objeto Scanner
@@ -40,8 +41,16 @@ public class LecturaArchivo {
                 numeroEstablecimientosEntero = Integer.parseInt(numeroEstablecimientos);
                 
                 // agregar código aquí
-                
-                
+                inicial = nombreCanton.charAt(0);
+                if(String.valueOf(inicial).equals("A")|| 
+                        String.valueOf(inicial).equals("E") || 
+                        String.valueOf(inicial).equals("I") ||
+                        String.valueOf(inicial).equals("O") ||
+                        String.valueOf(inicial).equals("U")){
+                    cadenaFinal = String.format("%sCantón %s (%d)\n", cadenaFinal, 
+                        nombreCanton,
+                        numeroEstablecimientosEntero);
+                }
             } // fin de while
             entrada.close();
         } // fin de try
